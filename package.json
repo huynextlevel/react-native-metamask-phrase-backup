@@ -27,5 +27,11 @@
   "bugs": {
     "url": "https://github.com/huynextlevel/react-native-metamask-phrase-backup/issues"
   },
-  "homepage": "https://github.com/huynextlevel/react-native-metamask-phrase-backup#readme"
+  "homepage": "https://github.com/huynextlevel/react-native-metamask-phrase-backup#readme",
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "metro-react-native-babel-preset": "^0.66.2"
+  }
 }

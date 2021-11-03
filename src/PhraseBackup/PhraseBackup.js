@@ -4,7 +4,22 @@ import { View, Text, StyleSheet, TouchableOpacity, FlatList, Dimensions } from '
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-const SeedComponent = ({ data, seeds, isHaveDisplayValue, handleSelect, containerStyle, displaySelectedWrapperStyle, displaySelectedStyle, displaySelectedItemStyle, ...rest }) => {
+const PhraseBackup = ({
+  data,
+  seeds,
+  isHaveDisplayValue,
+  onChange,
+  containerStyle,
+  displaySelectedWrapperStyle,
+  displaySelectedStyle,
+  displaySelectedItemRowStyle,
+  displayButtonStyle,
+  displaySelectedButtonStyle,
+  displayButtonTextStyle,
+  selectedButtonStyle,
+  buttonStyle,
+  buttonTextStyle,
+}) => {
   const [newData, setNewData] = useState([]);
   const [tempSelected, setTempSelected] = useState([]);
   const [seletecArr, setSeletecArr] = useState(Array.from({ length: seeds }, (_, i) => i + 1));
@@ -49,7 +64,7 @@ const SeedComponent = ({ data, seeds, isHaveDisplayValue, handleSelect, containe
 
       setTempSelected(filterSeleted);
       setSeletecArr([...filterSeleted, ...Array.from({ length: seeds - filterSeleted.length }, (_, i) => i + 1)]);
-      handleSelect(value);
+      onChange(value);
     } else {
       selected.push(item);
       selected.forEach((item) => (
@@ -58,7 +73,7 @@ const SeedComponent = ({ data, seeds, isHaveDisplayValue, handleSelect, containe
 
       setTempSelected(selected);
       setSeletecArr([...selected, ...Array.from({ length: seeds - selected.length }, (_, i) => i + 1)]);
-      handleSelect(value);
+      onChange(value);
     }
     setNewData(tempArr);
   }
@@ -68,13 +83,13 @@ const SeedComponent = ({ data, seeds, isHaveDisplayValue, handleSelect, containe
       <View style={[styles.displaySelectedWrapperContainer, displaySelectedWrapperStyle]}>
         <View style={[styles.displaySelectedContainer, displaySelectedStyle]}>
           {seletecArr.map((item, index) => (
-            <View key={index} style={[styles.displayItemContainer, displaySelectedItemStyle]}>
+            <View key={index} style={[styles.displayItemContainer, displaySelectedItemRowStyle]}>
               <Text>{index + 1}.</Text>
               <TouchableOpacity
-                style={typeof item === 'object' ? styles.displaySelectedButton : styles.displayButton}
+                style={typeof item === 'object' ? [styles.displaySelectedButton, displaySelectedButtonStyle] : [styles.displayButton, displayButtonStyle]}
                 onPress={() => selectedItem(item)}
               >
-                <Text style={styles.buttonText}>{item.value}</Text>
+                <Text style={[styles.buttonText, displayButtonTextStyle]}>{item.value}</Text>
               </TouchableOpacity>
             </View>
           ))}
@@ -90,29 +105,39 @@ const SeedComponent = ({ data, seeds, isHaveDisplayValue, handleSelect, containe
       keyExtractor={(item) => item.id }
       renderItem={({ item }) => (
         <TouchableOpacity
-          style={item.isSelected ? styles.selectedButton : styles.button}
+          style={item.isSelected ? [styles.selectedButton, selectedButtonStyle] : [styles.button, buttonStyle]}
           onPress={() => selectedItem(item)}
         >
-          <Text style={styles.buttonText}>{item.value}</Text>
+          <Text style={[styles.buttonText, buttonTextStyle]}>{item.value}</Text>
         </TouchableOpacity>
       )}
     />
 	</View>;
 };
 
-SeedComponent.defaultProps = {
+PhraseBackup.defaultProps = {
   seeds: 12,
   isHaveDisplayValue: true,
 };
 
-SeedComponent.propTypes = {
+PhraseBackup.propTypes = {
   data: PropTypes.array.isRequired,
   seeds: PropTypes.number.isRequired,
-  handleSelect: PropTypes.func,
+  onChange: PropTypes.func,
   isHaveDisplayValue: PropTypes.bool,
+  containerStyle: PropTypes.object,
+  displaySelectedWrapperStyle: PropTypes.object,
+  displaySelectedStyle: PropTypes.object,
+  displaySelectedItemRowStyle: PropTypes.object,
+  displayButtonStyle: PropTypes.object,
+  displaySelectedButtonStyle: PropTypes.object,
+  displayButtonTextStyle: PropTypes.object,
+  selectedButtonStyle: PropTypes.object,
+  buttonStyle: PropTypes.object,
+  buttonTextStyle: PropTypes.object,
 };
 
-export default SeedComponent;
+export default PhraseBackup;
 
 const styles = StyleSheet.create({
 	container: {
