@@ -1,0 +1,31 @@
+{
+  "name": "react-native-metamask-phrase-backup",
+  "version": "1.0.0",
+  "description": "This is a component for phrase backup based on Metamask Wallet App.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huynextlevel/react-native-metamask-phrase-backup.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "react-component",
+    "seed",
+    "phrase-backup",
+    "blockchain",
+    "wallet",
+    "ios",
+    "android",
+    "mobile"
+  ],
+  "author": "Huy Pham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huynextlevel/react-native-metamask-phrase-backup/issues"
+  },
+  "homepage": "https://github.com/huynextlevel/react-native-metamask-phrase-backup#readme"
+}
