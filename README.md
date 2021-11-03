@@ -45,7 +45,7 @@ Simply place a `<PhraseBackup />` tag.
 ### Phrase Backup Component
 | Name                      | Description                              | Default     | Type    |
 |---------------------------|------------------------------------------|-------------|---------|
-| data                      | The data of phrase backup string         | REQUIRED    | String  |
+| data                      | The data of phrase backup string         | REQUIRED    | Array   |
 | seeds                     | Total of phrase backup words             | 12          | number  |
 | onChange                  | To get the selected string array         | null        | function |
 | containerStyle            | The wrapper style of component           | null        | Object  |
