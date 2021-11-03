@@ -7,7 +7,7 @@ Metamask UI Example
 :-------------------------:
 ![](assets/react-native-metamask-phrase-backup-example1.png)
 
-React Native Metamask Phrase Backup Example 1 | React Native Metamask Phrase Backup Example 2 | React Native Metamask Phrase Backup Example 3
+React Native Metamask Phrase Backup Example | React Native Metamask Phrase Backup Example | React Native Metamask Phrase Backup Example
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](assets/react-native-metamask-phrase-backup-example2.png) | ![](assets/react-native-metamask-phrase-backup-example3.png) | ![](assets/react-native-metamask-phrase-backup-example4.png)
 
