@@ -97,7 +97,7 @@ return <View style={styles.container}>
 | data                      | The data of phrase backup string         | REQUIRED    | Array   |
 | seeds                     | Total of phrase backup words             | 12          | number  |
 | value                     | Just need value when you hide display selected area isHaveDisplayValue = false            | OPTIONAL          | string  |
-| isHaveDisplayValue        | Show/Hide display seletected area, when you want to custom your display area        | TRUE          | bobooleanol  |
+| isHaveDisplayValue        | Show/Hide display seletected area, when you want to custom your display area        | TRUE          | boolean  |
 | onChange                  | To get the selected string array         | null        | function |
 | containerStyle            | The wrapper style of component           | null        | Object  |
 | displaySelectedWrapperStyle | Style applied to the wrapper display seletected container  | null | Object  |
