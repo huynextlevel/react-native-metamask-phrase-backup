@@ -65,16 +65,17 @@ const PhraseBackup = ({
       ))
     ];
     const filterArr = selected.filter((i) => i.value === selectedValue);
-
+    
     if (filterArr.length !== 0) {
       const filterSeleted = selected.filter((i) => i.value !== selectedValue);
       filterSeleted.forEach((item) => (
-        valueArr.push(item.value)
+        value.push(item.value)
       ));
 
       setTempSelected(filterSeleted);
       setSeletecArr([...filterSeleted, ...Array.from({ length: seeds - filterSeleted.length }, (_, i) => i + 1)]);
-      onChange(value);
+      if (!isHaveDisplayValue) onChange([...value, ...Array.from({ length: seeds - filterSeleted.length }, (_, i) => i + 1)])
+      else onChange(value);
     } else {
       selected.push(item);
       selected.forEach((item) => (
@@ -83,7 +84,8 @@ const PhraseBackup = ({
 
       setTempSelected(selected);
       setSeletecArr([...selected, ...Array.from({ length: seeds - selected.length }, (_, i) => i + 1)]);
-      onChange(value);
+      if (!isHaveDisplayValue) onChange([...value, ...Array.from({ length: seeds - selected.length }, (_, i) => i + 1)])
+      else onChange(value);
     }
     setNewData(tempArr);
   }

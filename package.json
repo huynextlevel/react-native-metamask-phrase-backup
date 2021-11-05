@@ -1,6 +1,6 @@
 {
   "name": "react-native-metamask-phrase-backup",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is a component for phrase backup based on Metamask Wallet App.",
   "main": "index.js",
   "scripts": {
