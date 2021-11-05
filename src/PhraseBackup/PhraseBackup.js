@@ -7,6 +7,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const PhraseBackup = ({
   data,
   seeds,
+  value,
   isHaveDisplayValue,
   onChange,
   containerStyle,
@@ -45,21 +46,30 @@ const PhraseBackup = ({
     setNewData(randomsieArray(tempArr));
   }, []);
 
-  const selectedItem = (item) => {
-    const selected = [...tempSelected];
+  useEffect(() => {
+    if (!isHaveDisplayValue && value) {
+      selectedItem({}, value);
+    }
+  }, [isHaveDisplayValue, value]);
+
+  const selectedItem = (item, seed) => {
     const value = [];
+    const selected = [...tempSelected];
+    const selectedValue = !isHaveDisplayValue && seed !== undefined ? seed : item.value;
+
     const tempArr = [
       ...newData.map((i) => (
-        i.id === item.id
+        i.value === selectedValue
           ? { ...i, isSelected: !i.isSelected }
           : { ...i, isSelected: i.isSelected }
       ))
     ];
-    const filterArr = selected.filter((i) => i.id === item.id);
+    const filterArr = selected.filter((i) => i.value === selectedValue);
+
     if (filterArr.length !== 0) {
-      const filterSeleted = selected.filter((i) => i.id !== item.id);
+      const filterSeleted = selected.filter((i) => i.value !== selectedValue);
       filterSeleted.forEach((item) => (
-        value.push(item.value)
+        valueArr.push(item.value)
       ));
 
       setTempSelected(filterSeleted);
@@ -123,6 +133,7 @@ PhraseBackup.defaultProps = {
 PhraseBackup.propTypes = {
   data: PropTypes.array.isRequired,
   seeds: PropTypes.number.isRequired,
+  value: PropTypes.string,
   onChange: PropTypes.func,
   isHaveDisplayValue: PropTypes.bool,
   containerStyle: PropTypes.object,

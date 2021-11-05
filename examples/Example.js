@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Alert, TouchableOpacity } from 'react-native';
+import { PhraseBackup } from 'react-native-metamask-phrase-backup';
 
-import SeedComponent from './SeedComponent';
-
-const Example = (props) => {
+const Example = () => {
   const data = ['relationship', 'thanksgiving', 'professional', 'organization', 'sporadically', 'intimidating', 'abolitionist', 'onomatopoeia', 'appreciation', 'annunciation', 'malnutrition', 'architecture'];
   const [displayArr, setDisplayArr] = useState([])
   const handleSelect = (value) => {
@@ -23,7 +22,7 @@ const Example = (props) => {
 	return <View style={styles.container}>
     <Text style={[styles.description, { fontSize: 20 }]}>React Native Metamask Phrase Word Example</Text>
     <Text style={styles.description}>Select each word in the order it was presented to you.</Text>
-		<SeedComponent data={data} seeds={12} onChange={handleSelect}/>
+		<PhraseBackup data={data} seeds={12} onChange={handleSelect}/>
     <TouchableOpacity style={{ width: 320, height: 40, borderWidth: 1, borderColor: '#000', borderRadius: 18, marginTop: 20, alignItems: 'center', justifyContent: 'center' }} onPress={result}>
       <Text style={{ fontWeight: '500' }}>Complete Backup</Text>
     </TouchableOpacity>
